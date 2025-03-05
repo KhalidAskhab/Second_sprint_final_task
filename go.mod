@@ -1,4 +1,4 @@
-module SSFT
+module Second_sprint_final_task
 
 go 1.24.0
 
