@@ -1,63 +1,84 @@
 # Финальная задача спринта 2. Конкурентное программирование
-## Компоненты системы
+Этот проект представляет собой систему для распределения и выполнения математических задач между агентами с использованием оркестратора. Проект написан на языке Go и включает в себя следующие компоненты:
 
-- **Оркестратор**: Это серверная часть, которая принимает арифметические выражения, разбивает их на задачи и отправляет их агентам для выполнения.
-- **Агент**: Это демон, который получает задачи от оркестратора, выполняет их и возвращает результаты обратно оркестратору.
+- **Оркестратор**: Распределяет задачи между агентами.
+- **Агент**: Выполняет математические задачи и возвращает результаты.
+- **Сервер**: Принимает выражения от пользователей и управляет их выполнением.
+
+## Структура проекта
 
 ## Пакеты
-- │Second_sprint_final_task/
+- Second_sprint_final_task/
 - ├── cmd/
-- │   ├── main.go
-- │   └── agent/
-- │       └── main.go
+- │ ├── main.go # Основной файл для запуска сервера
+- │ └── agent/
+- │ └── main.go # Основной файл для запуска агента
 - ├── internal/
-- │   ├── agent/
-- │   │   ├── agent.go
-- │   │   └── agent_test.go
-- │   ├── orchestrator/
-- │   │   ├── orchestrator.go
-- │   │   └── orchestrator_test.go
-- │   └── application/
-- │       ├── application.go
-- │       └── application_test.go
+- │ ├── agent/
+- │ │ ├── agent.go # Логика агента
+- │ │ └── agent_test.go # Тесты для агента
+- │ ├── orchestrator/
+- │ │ ├── orchestrator.go # Логика оркестратора
+- │ │ └── orchestrator_test.go # Тесты для оркестратора
+- │ └── application/
+- │ ├── application.go # Логика приложения (HTTP-сервер)
+- │ └── application_test.go # Тесты для приложения
 - ├── pkg/
-- │   ├── calculation/
-- │   │   ├── calculation.go
-- │   │   ├── calculation_test.go
-- │   │   └── errors.go
-- │   └── models/
-- │       └── models.go
-- ├── go.mod
-- ├── go.sum
-- └── README.md
+- │ ├── calculation/
+- │ │ ├── calculation.go # Логика вычислений
+- │ │ ├── calculation_test.go # Тесты для вычислений
+- │ │ └── errors.go # Ошибки для модуля вычислений
+- │ └── models/ 
+- │ └── models.go # Модели данных 
+- ├── go.mod # Файл зависимостей Go 
+- ├── go.sum # Контрольная сумма зависимостей 
+- └── README.md # Этот фай
+  
 
-## Описание файлов и пакетов
--cmd/
 
--cmd/main.go: Основной файл для запуска приложения (например, сервера или оркестратора).
 
--cmd/agent/main.go: Основной файл для запуска агента.
 
--internal/
+## Установка и запуск
 
--internal/agent/agent.go: Логика агента, который выполняет задачи.
+### Требования
+- Установленный Go (версия 1.21 или выше).
 
--internal/agent/agent_test.go: Тесты для агента.
+### Клонирование репозитория
+```bash
+git clone https://github.com/ваш-username/Second_sprint_final_task.git
+cd Second_sprint_final_task
+```
 
--internal/orchestrator/orchestrator.go: Логика оркестратора, который распределяет задачи между агентами.
 
--internal/orchestrator/orchestrator_test.go: Тесты для оркестратора.
+### Установка зависимостей
+```bash
+go mod tidy
+```
 
--internal/application/application.go: Логика приложения (например, HTTP-сервер или CLI).
+### Запуск сервера
+```bash
+go run cmd/main.go
+```
 
--internal/application/application_test.go: Тесты для приложения.
+### Запуск агента
+```bash
+go run cmd/agent/main.go
+```
 
--pkg/
+### Запуск тестов
+```bash
+go test ./...
+```
 
--pkg/calculation/calculation.go: Логика для вычисления математических выражений.
 
--pkg/calculation/calculation_test.go: Тесты для модуля вычислений.
 
--pkg/calculation/errors.go: Определение ошибок для модуля вычислений.
-
--pkg/models/models.go: Модели данных, используемые в проекте (например, Task, Result, Expression)
+### Пример запроса:
+```
+curl -X POST http://localhost:8080/api/v1/calculate ^
+     -H "Content-Type: application/json" ^
+     -d "{\"expression\": \"2 + 2 * 2\"}"
+```
+###Проверка статуса
+```
+curl http://localhost:8080/api/v1/expressions
+```
