@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"SSFT/pkg/models"
+	"Second_sprint_final_task/pkg/models"
 )
 
 func TestAddExpressionHandler(t *testing.T) {
