@@ -1,7 +1,7 @@
 package orchestrator
 
 import (
-	"SSFT/pkg/models"
+	"Second_sprint_final_task/pkg/models"
 	"log"
 	"sync"
 	"time"
