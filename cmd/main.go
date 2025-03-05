@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"SSFT/internal/application"
+	"Second_sprint_final_task/internal/application"
 )
 
 func main() {
