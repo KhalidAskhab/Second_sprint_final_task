@@ -1,7 +1,7 @@
 package application
 
 import (
-	"SSFT/pkg/models"
+	"Second_sprint_final_task/pkg/models"
 	"encoding/json"
 	"fmt"
 	"github.com/google/uuid"
