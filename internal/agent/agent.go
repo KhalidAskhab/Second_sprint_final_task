@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"SSFT/pkg/calculation"
-	"SSFT/pkg/models"
+	"Second_sprint_final_task/pkg/calculation"
+	"Second_sprint_final_task/pkg/models"
 )
 
 var (
