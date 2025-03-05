@@ -1,7 +1,7 @@
 package main
 
 import (
-	"SSFT/internal/agent"
+	"Second_sprint_final_task/internal/agent"
 )
 
 func main() {
