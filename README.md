@@ -52,7 +52,7 @@ cd Second_sprint_final_task
 
 ### Установка зависимостей
 ```bash
-go mod tidy
+go mod download
 ```
 
 ### Запуск сервера
