@@ -45,7 +45,7 @@
 
 ### Клонирование репозитория
 ```bash
-git clone https://github.com/ваш-username/Second_sprint_final_task.git
+https://github.com/KhalidAskhab/Second_sprint_final_task.git
 cd Second_sprint_final_task
 ```
 
