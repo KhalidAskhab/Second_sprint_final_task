@@ -15,7 +15,6 @@ var (
 )
 
 func init() {
-	// Чтение переменных среды и преобразование в time.Duration
 	additionTime = getEnvAsDuration("TIME_ADDITION_MS", 100)
 	subtractionTime = getEnvAsDuration("TIME_SUBTRACTION_MS", 200)
 	multiplicationTime = getEnvAsDuration("TIME_MULTIPLICATIONS_MS", 300)
@@ -33,7 +32,6 @@ func Calc(expression string) (float64, error) {
 		return (r >= '0' && r <= '9') || r == '.' || r == '(' || r == ')'
 	})
 
-	// Убираем пустые строки (например, из-за скобок)
 	operators = removeEmptyStrings(operators)
 
 	if len(numbers) != len(operators)+1 {
